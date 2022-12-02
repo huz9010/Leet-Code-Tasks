@@ -13,14 +13,16 @@ public class ContainerWithMostWater {
     public static int maxArea(int[] height) {
 
         int maxArea = 0;
+        int i = 0;
+        int j = height.length - 1;
 
-        for (int i = 0; i < height.length - 1; i++) {
-            for (int j = i + 1; j < height.length; j++) {
-                int currentArea = Math.min(height[i], height[j]) * (j - i);
-
-                if (currentArea > maxArea)  {
-                    maxArea = currentArea;
-                }
+        while (i < j)   {
+            if (height[j] >= height[i]) {
+                maxArea = Math.max(maxArea, height[i] * (j - i));
+                i++;
+            }   else {
+                maxArea = Math.max(maxArea, height[j] * (j - i));
+                j--;
             }
         }
         return maxArea;
