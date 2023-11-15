@@ -12,16 +12,18 @@ public class PowXn {
 
     public static double myPow(double x, int n) {
 
-        double result = 1;
-
-        for (int i = 1; i <= Math.abs(n); i++) {
-            result *= x;
+        if (n == 0) {
+            return 1;
         }
 
-        if (n < 0)  {
-            result = 1 / result;
+        double temp = myPow(x, n / 2);
 
+        if (n % 2 == 0) {
+            return temp * temp;
+        }   else {
+            if (n > 0) {
+                return x * temp * temp;
+            } else return temp * temp / x;
         }
-        return result;
     }
 }

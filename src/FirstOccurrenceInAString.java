@@ -11,8 +11,7 @@ public class FirstOccurrenceInAString {
     }
     public static int strStr(String haystack, String needle) {
         if (haystack.contains(needle))  {
-            int index = haystack.indexOf(needle);
-            return index;
+            return haystack.indexOf(needle);
         }   else {
             return -1;
         }
